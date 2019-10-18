@@ -11,9 +11,9 @@ modules:
 	@echo "Making modules $(TARGET).ko ..."
 	$(MAKE) -C $(KDIR) M=$(PWD) modules
 
-install: all
-	mkdir -v -p "$(DESTDIR)/lib/modules/$(KVER)/kernel/drivers/misc"
-	install $(TARGET).ko $(DESTDIR)/lib/modules/$(KVER)/kernel/drivers/misc/
+install: modules
+	/usr/bin/install -m 644 -D $(TARGET).ko /lib/modules/$(KVER)/kernel/drivers/misc/$(TARGET).ko
+	/usr/bin/install -m 644 -D $(TARGET).conf /usr/lib/modules-load.d/$(TARGET).conf
 
 clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) clean

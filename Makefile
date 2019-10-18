@@ -12,8 +12,8 @@ modules:
 	$(MAKE) -C $(KDIR) M=$(PWD) modules
 
 install: all
-	mkdir -v -p "$(DESTDIR)/lib/modules/$(KVER)/kernel/drivers/gpio"
-	install $(TARGET).ko $(DESTDIR)/lib/modules/$(KVER)/kernel/drivers/gpio/
+	mkdir -v -p "$(DESTDIR)/lib/modules/$(KVER)/kernel/drivers/misc"
+	install $(TARGET).ko $(DESTDIR)/lib/modules/$(KVER)/kernel/drivers/misc/
 
 clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) clean
